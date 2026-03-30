@@ -1,0 +1,5 @@
+user_id,name,email,address,password_hash,role
+1,a,a@a.com,a,$2a$12$yOM3I/PxwLGHmFgLjfKJlOwogUQ6CzhpnE822QSHhdACNfHxRS1U2,member
+2,customer,customer@test.com,testaddress,$2a$12$iChhYKrSGwndNntmvtdcuuOBsqY.nui03jb2P69zVP38Z8Nue/kD.,member
+3,guan,guan@1.com,gaui,$2a$12$xFYwHdbL3F3IrWItZZABJuynrfSpmHcTMmf3tB5tYRe7Uc6dM1yMq,member
+4,Admin,123@example.com,LS1 123,$2a$12$8DrFlSXTNKDFzTs6FkUMzu.0eqdGvQfyo0xqnIknZ91ddQcCVyF/6,member

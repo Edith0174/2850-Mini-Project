@@ -1,40 +1,41 @@
-# ktor-sample
+# Library
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
+A CSV-based Ktor web application adapted from the supermarket project for the COMP2850 library miniproject.
 
-Here are some useful links to get you started:
+## What changed
+- Removed employee features
+- Removed database and Flyway usage
+- Removed tests from the delivered zip
+- Switched to CSV storage only
+- Reworked the domain from supermarket products to library books
 
-- [Ktor Documentation](https://ktor.io/docs/home.html)
-- [Ktor GitHub page](https://github.com/ktorio/ktor)
-- The [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). You'll need
-  to [request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) to join.
+## Implemented features
+- Search books by title, author, ISBN, location, or notes
+- View book details, format, shelf location, and copy availability
+- Sign up and log in for library users
+- Borrow available copies
+- Return currently borrowed copies
+- Reserve unavailable books
+- View active loans and reservations in the account page
+- Staff-only inventory page to add, update, or remove books
 
-## Features
+## Default roles
+- New sign-ups are created as `member`
+- To create a staff account, sign up normally and then edit `src/main/resources/data/users.csv` to change the role to `staff`
 
-Here's a list of features included in this project:
-
-| Name                                               | Description                                                 |
-|----------------------------------------------------|-------------------------------------------------------------|
-| [Routing](https://start.ktor.io/p/routing-default) | Allows to define structured routes and associated handlers. |
-
-## Building & Running
-
-To build or run the project, use one of the following tasks:
-
-| Task                                    | Description                                                          |
-|-----------------------------------------|----------------------------------------------------------------------|
-| `./gradlew test`                        | Run the tests                                                        |
-| `./gradlew build`                       | Build everything                                                     |
-| `./gradlew buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `./gradlew buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `./gradlew publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `./gradlew run`                         | Run the server                                                       |
-| `./gradlew runDocker`                   | Run using the local docker image                                     |
-
-If the server starts successfully, you'll see the following output:
-
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
+## Run
+```bash
+./gradlew run
 ```
 
+Then open `http://localhost:8080`.
+
+## Data files
+- `src/main/resources/data/books.csv`
+- `src/main/resources/data/users.csv`
+- `src/main/resources/data/loans.csv`
+- `src/main/resources/data/reservations.csv`
+
+Notes:
+- The provided book list contains duplicate titles and multiple physical copies. The app treats each CSV row as one copy.
+- Inventory actions modify the CSV files directly.

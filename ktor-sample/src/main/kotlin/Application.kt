@@ -1,11 +1,15 @@
-package com.example
-
-import io.ktor.server.application.*
+import config.configurePlugins
+import config.configureRouting
+import config.configureSessions
+import io.ktor.server.application.Application
+import io.ktor.server.netty.EngineMain
 
 fun main(args: Array<String>) {
-    io.ktor.server.netty.EngineMain.main(args)
+    EngineMain.main(args)
 }
 
 fun Application.module() {
+    configurePlugins()
+    configureSessions()
     configureRouting()
 }
